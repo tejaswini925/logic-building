@@ -1,0 +1,55 @@
+#include<stdio.h>
+void main()
+{
+int m,n,p,q,A[10][10],B[10][10],C[10][10],i,j,k;
+printf("enter rows and columns of 1st matrix A:\n");
+scanf("%d %d",&m,&n);
+printf("enter rows and columns of 2nd matrix B:\n");
+scanf("%d %d",&p,&q);
+if(n!=p)
+{
+printf("matrix multiplication not possible\n");
+}
+printf("enter elements of 1st matrix:\n");
+for(i=1;i<=m;i++)
+{
+for(j=1;j<=n;j++)
+{
+scanf("%d",&A[i][j]);
+}
+}
+printf("enter elements of 2nd matrix:\n");
+for(i=1;i<=p;i++)
+{
+for(j=1;j<=q;j++)
+{
+scanf("%d",&B[i][j]);
+}
+}
+for(i=1;i<=m;i++)
+{
+for(j=1;j<=q;j++)
+{
+c[i][j]=0;
+for(k=1;k<=n;k++)
+{
+c[i][j]=c[i][j]+A[i][k]*B[j][k];
+}
+}
+}
+printf("result matrix:\n");
+for(i=1;i<=m;i++)
+{
+for(j=1;j<=q;j++)
+{
+printf("%d",c[i][j]);
+}
+printf("\n");
+}
+}
+
+
+
+
+
+
