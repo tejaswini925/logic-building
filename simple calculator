@@ -1,0 +1,32 @@
+#include<stdio.h>
+void main()
+{
+int a,b,ch;
+printf("enter two numbers\n");
+scanf("%d%d",&a,&b);
+printf("calculator\n");
+printf("Addition\n"0;
+printf("Subtraction\n");
+printf("product\n");
+printf("division\n");
+printf("enter your choice\n");
+scanf("%d",&ch);
+printf("your choice:%d\n",ch);
+switch(ch)
+{
+case1:
+      printf("sum:%d\n",(a+b));
+      break;
+case2:
+      printf("subtraction:%d\n",(a-b));
+      break;
+case3:
+      printf("product:%d\n",(a*b));
+      break;
+case4:
+      printf("division:%d\n",(a/b));
+      break;
+default:
+        printf("invalid choice..\n");
+}
+}
