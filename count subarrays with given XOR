@@ -1,0 +1,26 @@
+#include<stdio.h>
+int countSubarrayxor(int arr[],int n,int k)
+{
+int hash[1000]={0};
+int xor=0;
+int count=0;
+for(int i=0;i<n;i++)
+{
+xor=xor^arr[i];
+if(xor==k)
+count++;
+if(hash[xor^k]!=0)
+count+=hash[xor^k];
+hash[xor]++;
+}
+return count;
+}
+void main()
+{
+int arr[]={4,2,2,6,4}
+int n=5;
+int k=6;
+int result=countsubarrayxor(arr,n,k);
+printf("number of subarrays with xor=%d is %d",k,result);
+return 0;
+}
