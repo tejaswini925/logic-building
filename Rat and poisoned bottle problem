@@ -1,0 +1,16 @@
+#include<stdio.h>
+void main()
+{
+int poisoned;
+printf("enter poisoned bottle number(0-1023):");
+scanf("%d",&poisoned);
+printf("\n rats that will die:\n");
+for(int i=0;i<10;i++)
+{
+if(poisoned &(1<<i))
+{
+printf("rat %d dies\n",i+1);
+}
+}
+printf("\n after observing dead rats,reconstruct bottle number=%d\n",poisoned);
+}
