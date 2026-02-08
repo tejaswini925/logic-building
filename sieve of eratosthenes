@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <math.h>
+
+void sieve(int n) {
+    int prime[n + 1];
+
+    // Step 1: assume all numbers are prime
+    for (int i = 0; i <= n; i++)
+        prime[i] = 1;
+
+    prime[0] = prime[1] = 0;
+
+    // Step 2: sieve process
+    for (int i = 2; i <= sqrt(n); i++) {
+        if (prime[i] == 1) {
+            for (int j = i * i; j <= n; j += i) {
+                prime[j] = 0;
+            }
+        }
+    }
+
+    // Step 3: print primes
+    printf("Prime numbers:\n");
+    for (int i = 2; i <= n; i++) {
+        if (prime[i] == 1)
+            printf("%d ", i);
+    }
+}
+
+int main() {
+    int n;
+    printf("Enter n: ");
+    scanf("%d", &n);
+
+    sieve(n);
+    return 0;
+}
