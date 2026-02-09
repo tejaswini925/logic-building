@@ -1,0 +1,33 @@
+#include<stdio.h>
+void main()
+{
+    char name[50];
+    int units;
+    float amt=0.0,surcharge=0.0,total;
+    printf("enter a consumer name:\n");
+    scanf("%s",name);
+    printf("enter a units consumed:");
+    scanf("%d",&units);
+    if(units<200)
+    {
+        amt=units*0.8;
+    }
+    else if(units<300)
+    {
+        amt=(200*0.8)+((units-200)*0.9);
+    }
+    else
+    {
+        amt=(200*0.8)+(100*0.9)+((units-300)*1.00);
+    }
+    amt=amt+100;
+    if(amt>400)
+    {
+        surcharge=amt*0.15;
+    }
+    total=amt+surcharge;
+    printf("electricity bill\n");
+    printf("consumer name:%s\n",name);
+    printf("consumed units:%d\n",units);
+    printf("bill amount:rs%.2f\n",total);
+}
