@@ -1,0 +1,20 @@
+#include <stdio.h>
+#define MAX 100
+int stack[MAX];
+int top = -1;
+int main() {
+    int n, i;
+    scanf("%d", &n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &stack[++top]);
+    }
+    int mid = n / 2;   // middle index
+    for(i = mid; i < top; i++) {
+        stack[i] = stack[i + 1];
+    }
+    top--;  // reduce stack size
+    for(i = 0; i <= top; i++) {
+        printf("%d ", stack[i]);
+    }
+    return 0;
+}
