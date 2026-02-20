@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main() {
+    int p1 = 0, p2 = 0;
+    int dice, turn = 1;
+    srand(time(0));   
+    while (p1 < 50 && p2 < 50) {
+        printf("\nPlayer %d turn. Press Enter to roll dice...", turn);
+        getchar();
+        dice = (rand() % 6) + 1;   
+        printf("Dice: %d\n", dice);
+        if (turn == 1) {
+            p1 += dice;
+            printf("Player 1 position: %d\n", p1);
+            turn = 2;
+        } else {
+            p2 += dice;
+            printf("Player 2 position: %d\n", p2);
+            turn = 1;
+        }
+    }
+    if (p1 >= 50)
+        printf("\n Player 1 Wins!\n");
+    else
+        printf("\n Player 2 Wins!\n");
+    return 0;
+}
