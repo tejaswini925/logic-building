@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <string.h>
+#define R 4
+#define C 4
+int search(char g[R][C], char w[], int i, int j, int k)
+{
+    if (k == strlen(w))
+        return 1;
+
+    if (i < 0 || j < 0 || i >= R || j >= C || g[i][j] != w[k])
+        return 0;
+    char temp = g[i][j];
+    g[i][j] = '*';   
+
+    int found =
+        search(g, w, i+1, j, k+1) ||
+        search(g, w, i-1, j, k+1) ||
+        search(g, w, i, j+1, k+1) ||
+        search(g, w, i, j-1, k+1);
+
+    g[i][j] = temp; 
+    return found;
+}
+int main()
+{
+    char grid[R][C] = {
+        {'T','R','E','E'},
+        {'W','A','T','E'},
+        {'R','O','C','K'},
+        {'L','A','K','E'}
+    };
+    char word[20];
+    int found = 0;
+    printf("Enter word to search: ");
+    scanf("%s", word);
+    for (int i = 0; i < R; i++)
+    {
+        for (int j = 0; j < C; j++)
+        {
+            if (search(grid, word, i, j, 0))
+            {
+                found = 1;
+                break;
+            }
+        }
+        if (found) break;
+    }
+    if (found)
+        printf("Word FOUND in grid");
+    else
+        printf("Word NOT FOUND in grid");
+    return 0;
+}
