@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main() {
+    int pos = 1, dice;
+
+    printf("Snake & Ladder Game Start!\n");
+
+    while (pos < 30) {
+        printf("\nEnter dice value (1 to 6): ");
+        scanf("%d", &dice);
+        if (pos + dice > 30)
+            continue;
+        pos = pos + dice;
+        if (pos == 17) {
+            printf("Snake bite! 17 -> 4\n");
+            pos = 4;
+        }
+        if (pos == 3) {
+            printf("Ladder! 3 -> 22\n");
+            pos = 22;
+        }
+        printf("Current position: %d\n", pos);
+    }
+    printf("\nYou reached 30. You win!\n");
+    return 0;
+}
