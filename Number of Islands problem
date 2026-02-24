@@ -1,0 +1,32 @@
+#include <stdio.h>
+#define R 4
+#define C 5
+int main()
+{
+    char grid[R][C] = {
+        {'1','1','0','0','0'},
+        {'1','1','0','0','1'},
+        {'0','1','1','0','0'},
+        {'0','0','1','1','1'}
+    };
+    int count = 0;
+    for(int i = 0; i < R; i++)
+    {
+        for(int j = 0; j < C; j++)
+        {
+            if(grid[i][j] == '1')
+            {
+                count++;
+                for(int x = i; x < R && grid[x][j] == '1'; x++)
+                {
+                    for(int y = j; y < C && grid[x][y] == '1'; y++)
+                    {
+                        grid[x][y] = '0';
+                    }
+                }
+            }
+        }
+    }
+    printf("Number of Islands = %d", count);
+    return 0;
+}
