@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h> 
+int main() {
+    int n, m;
+    printf("Enter value of n: ");
+    scanf("%d", &n);
+    printf("Enter value of m: ");
+    scanf("%d", &m);
+    if(m == 0) {
+        printf("m cannot be 0");
+        return 0;
+    }
+    int lower = (n / m) * m;
+    int higher = lower + m;
+    if(abs(n - lower) < abs(n - higher))
+        printf("Closest number divisible by %d is %d", m, lower);
+    else
+        printf("Closest number divisible by %d is %d", m, higher);
+    return 0;
+}
