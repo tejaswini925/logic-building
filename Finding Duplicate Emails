@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char email[10][50];
+    int i,j,n;
+    printf("Enter number of emails: ");
+    scanf("%d",&n);
+    printf("Enter emails:\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%s",email[i]);
+    }
+    printf("\nDuplicate Emails:\n");
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(strcmp(email[i],email[j])==0)
+            {
+                printf("%s\n",email[i]);
+            }
+        }
+    }
+    return 0;
+}
