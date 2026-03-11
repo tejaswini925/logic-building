@@ -1,0 +1,22 @@
+#include <stdio.h>
+int main()
+{
+    FILE *f1, *f2;
+    int a[10][10], i, j, r, c;
+    f1 = fopen("input.txt", "r");
+    fscanf(f1, "%d %d", &r, &c);
+    for(i=0;i<r;i++)
+        for(j=0;j<c;j++)
+            fscanf(f1,"%d",&a[i][j]);
+    fclose(f1);
+    f2 = fopen("output.txt","w");
+    for(i=0;i<c;i++)
+    {
+        for(j=0;j<r;j++)
+            fprintf(f2,"%d ",a[j][i]);
+        fprintf(f2,"\n");
+    }
+    fclose(f2);
+    printf("Transpose written to file");
+    return 0;
+}
