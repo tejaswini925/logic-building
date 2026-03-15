@@ -1,0 +1,26 @@
+#include <stdio.h>
+int min(int a,int b)
+{
+    if(a<b) return a;
+    return b;
+}
+int max(int a,int b)
+{
+    if(a>b) return a;
+    return b;
+}
+int main()
+{
+    int a[3][3]={{-2,-3,3},{-5,-10,1},{10,30,-5}};
+    int dp[3][3];
+    int i,j;
+    dp[2][2] = max(1,1-a[2][2]);
+    for(i=1;i>=0;i--)
+        dp[i][2] = max(1, dp[i+1][2] - a[i][2]);
+    for(j=1;j>=0;j--)
+        dp[2][j] = max(1, dp[2][j+1] - a[2][j]);
+    for(i=1;i>=0;i--)
+        for(j=1;j>=0;j--)
+            dp[i][j] = max(1, min(dp[i+1][j],dp[i][j+1]) - a[i][j]);
+    printf("Minimum health needed = %d", dp[0][0]);
+}
