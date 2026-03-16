@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main()
+{
+    char map[10][5]={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+    int num,d1,d2,i,j;
+    printf("Enter number: ");
+    scanf("%d",&num);
+    d1=num/10;
+    d2=num%10;
+    for(i=0;map[d1][i]!='\0';i++)
+    {
+        for(j=0;map[d2][j]!='\0';j++)
+        {
+            printf("%c%c ",map[d1][i],map[d2][j]);
+        }
+    }
+    return 0;
+}
