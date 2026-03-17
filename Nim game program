@@ -1,0 +1,12 @@
+#include <stdio.h>
+int main()
+{
+    int n;
+    printf("Enter number of stones: ");
+    scanf("%d", &n);
+    if(n % 4 == 0)
+        printf("You will lose\n");
+    else
+        printf("You will win\n");
+    return 0;
+}
