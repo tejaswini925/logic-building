@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char s[50];
+    scanf("%s", s);
+    for(int i = 0; i < strlen(s); i++) {
+        int j = i;
+        while(s[j] == s[i]) j++;
+
+        if(j - i >= 3) {
+            strcpy(s + i, s + j);
+            i = -1; // restart
+        }
+    }
+    printf("%s", s);
+    return 0;
+}
