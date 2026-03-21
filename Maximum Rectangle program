@@ -1,0 +1,26 @@
+#include <stdio.h>
+int max(int a,int b){ return a>b?a:b; }
+int main() {
+    char m[4][5] = {
+        {'1','0','1','0','0'},
+        {'1','0','1','1','1'},
+        {'1','1','1','1','1'},
+        {'1','0','0','1','0'}
+    };
+    int h[5]={0}, ans=0;
+
+    for(int i=0;i<4;i++){
+        for(int j=0;j<5;j++){
+            if(m[i][j]=='1') h[j]++;
+            else h[j]=0;
+        }
+        for(int j=0;j<5;j++){
+            int min=h[j];
+            for(int k=j;k<5;k++){
+                if(h[k]<min) min=h[k];
+                ans=max(ans, min*(k-j+1));
+            }
+        }
+    }
+    printf("%d", ans);
+}
