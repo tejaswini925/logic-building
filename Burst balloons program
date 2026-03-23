@@ -1,0 +1,19 @@
+#include <stdio.h>
+int dp[305][305];
+int maxCoins(int a[], int n)
+{
+    int b[305]; 
+    b[0]=b[n+1]=1;
+    for(int i=1;i<=n;i++) b[i]=a[i-1];
+    for(int len=1;len<=n;len++)
+        for(int l=1;l<=n-len+1;l++)
+            for(int k=l;k<=l+len-1;k++)
+                if(dp[l][l+len-1] < b[l-1]*b[k]*b[l+len] + dp[l][k-1] + dp[k+1][l+len-1])
+                    dp[l][l+len-1] = b[l-1]*b[k]*b[l+len] + dp[l][k-1] + dp[k+1][l+len-1];
+    return dp[1][n];
+}
+int main()
+{
+    int a[]={3,1,5,8};
+    printf("%d", maxCoins(a,4));
+}
