@@ -1,0 +1,12 @@
+#include <stdio.h>
+int main() {
+    char name[5][20] = {"India","USA","Nepal","China","Brazil"};
+    long population[5] = {1300000000,320000000,30000000,1400000000,210000000};
+    int area[5] = {3000000,9834000,147000,9600000,8516000};
+    int n = 5;
+    for(int i = 0; i < n; i++) {
+        if(area[i] >= 3000000 || population[i] >= 25000000)
+            printf("%s\n", name[i]);
+    }
+    return 0;
+}
