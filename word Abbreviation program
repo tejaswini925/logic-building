@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char w[][20]={"like","god","internal","me","internet","interval"};
+    int n=6,p[6]={1},done=0;
+    char r[6][20];
+    while(!done){
+        done=1;
+        for(int i=0;i<n;i++){
+            int l=strlen(w[i]),num=l-p[i]-1;
+            if(l<=3||num<=1) strcpy(r[i],w[i]);
+            else sprintf(r[i],"%.*s%d%c",p[i],w[i],num,w[i][l-1]);
+        }
+        for(int i=0;i<n;i++)
+            for(int j=i+1;j<n;j++)
+                if(!strcmp(r[i],r[j])) p[i]++,p[j]++,done=0;
+    }
+
+    for(int i=0;i<n;i++) printf("%s ",r[i]);
+}
