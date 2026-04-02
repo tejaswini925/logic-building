@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdbool.h>
+bool solve(int max, int target, int used) {
+    if (target <= 0) return false;
+    for (int i = 1; i <= max; i++) {
+        if (!(used & (1 << i))) {
+            if (!solve(max, target - i, used | (1 << i)))
+                return true;
+        }
+    }
+    return false;
+}
+bool canIWin(int max, int target) {
+    int sum = max * (max + 1) / 2;
+    if (sum < target) return false;
+
+    return solve(max, target, 0);
+}
+int main() {
+    int max, target;
+    printf("Enter max number: ");
+    scanf("%d", &max);
+    printf("Enter target: ");
+    scanf("%d", &target);
+    printf("Output: %d", canIWin(max, target));
+}
