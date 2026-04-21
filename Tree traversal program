@@ -1,0 +1,48 @@
+class Node:
+    def _init_(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+
+# Inorder Traversal (Left, Root, Right)
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.value, end=" ")
+        inorder(root.right)
+
+
+# Preorder Traversal (Root, Left, Right)
+def preorder(root):
+    if root:
+        print(root.value, end=" ")
+        preorder(root.left)
+        preorder(root.right)
+
+
+# Postorder Traversal (Left, Right, Root)
+def postorder(root):
+    if root:
+        postorder(root.left)
+        postorder(root.right)
+        print(root.value, end=" ")
+
+
+# Create tree
+root = Node(10)
+root.left = Node(5)
+root.right = Node(15)
+root.left.left = Node(3)
+root.left.right = Node(7)
+
+
+# Display traversals
+print("Inorder Traversal:")
+inorder(root)
+
+print("\nPreorder Traversal:")
+preorder(root)
+
+print("\nPostorder Traversal:")
+postorder(root)
