@@ -1,0 +1,40 @@
+# Node class
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+# LCA function
+def LCA(root, n1, n2):
+    if root is None:
+        return None
+
+    # If one node matches
+    if root.data == n1 or root.data == n2:
+        return root
+
+    # Search left and right
+    left = LCA(root.left, n1, n2)
+    right = LCA(root.right, n1, n2)
+
+    # If both sides return something → root is LCA
+    if left and right:
+        return root
+
+    # Else return non-null
+    return left if left else right
+
+
+# Example tree
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+
+# Find LCA
+n1, n2 = 4, 5
+ans = LCA(root, n1, n2)
+
+print("LCA is:", ans.data)
