@@ -1,0 +1,8 @@
+def poorPigs(buckets, minutesToDie, minutesToTest):
+    # Step 1: calculate number of rounds
+    rounds = minutesToTest 
+    pigs = 0
+    # Step 2: keep increasing pigs until condition satisfies
+    while (rounds + 1) ** pigs < buckets:
+        pigs += 1
+    return pigs
