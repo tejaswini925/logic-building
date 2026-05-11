@@ -1,0 +1,19 @@
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+
+# Union
+print("Union:", a | b)
+
+# Intersection
+print("Intersection:", a & b)
+
+# Difference
+print("Difference:", a - b)
+
+# Addition
+x = 10
+y = 5
+print("Addition:", x + y)
+
+# Subtraction
+print("Subtraction:", x - y)
