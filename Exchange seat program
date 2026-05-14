@@ -1,0 +1,15 @@
+def exchangeSeats(seats):
+    n = len(seats)
+
+    for i in range(0, n - 1, 2):
+        seats[i], seats[i + 1] = seats[i + 1], seats[i]
+
+    return seats
+
+
+# Example
+seats = ["Abbot", "Doris", "Emerson", "Green", "Jeames"]
+
+result = exchangeSeats(seats)
+
+print(result)
