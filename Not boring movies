@@ -1,0 +1,21 @@
+cinema = [
+    [1, "War", "great 3D", 8.9],
+    [2, "Science", "fiction", 8.5],
+    [3, "Irish", "boring", 6.2],
+    [4, "Ice song", "Fantacy", 8.6],
+    [5, "House card", "Interesting", 9.1]
+]
+
+result = []
+
+for row in cinema:
+    id = row[0]
+    description = row[2]
+
+    if id % 2 == 1 and description != "boring":
+        result.append(row)
+
+result.sort(key=lambda x: x[3], reverse=True)
+
+for movie in result:
+    print(movie)
