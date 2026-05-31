@@ -1,0 +1,25 @@
+class Solution:
+    def assignBikes(self, workers, bikes):
+
+        pairs = []
+
+        for i, w in enumerate(workers):
+            for j, b in enumerate(bikes):
+
+                d = abs(w[0] - b[0]) + abs(w[1] - b[1])
+
+                pairs.append((d, i, j))
+
+        pairs.sort()
+
+        ans = [-1] * len(workers)
+        used_bikes = set()
+
+        for d, i, j in pairs:
+
+            if ans[i] == -1 and j not in used_bikes:
+
+                ans[i] = j
+                used_bikes.add(j)
+
+        return ans
