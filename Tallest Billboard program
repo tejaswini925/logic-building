@@ -1,0 +1,21 @@
+class Solution:
+    def tallestBillboard(self, rods):
+
+        dp = {0: 0}
+
+        for r in rods:
+
+            cur = dp.copy()
+
+            for d, h in cur.items():
+
+                # add to taller side
+                dp[d + r] = max(dp.get(d + r, 0), h)
+
+                # add to shorter side
+                nd = abs(d - r)
+                nh = h + min(d, r)
+
+                dp[nd] = max(dp.get(nd, 0), nh)
+
+        return dp[0]
