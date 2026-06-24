@@ -1,0 +1,21 @@
+class Solution:
+    def removeInvalidParentheses(self, s):
+        def valid(x):
+            c = 0
+            for ch in x:
+                if ch == '(':
+                    c += 1
+                elif ch == ')':
+                    c -= 1
+                if c < 0:
+                    return False
+            return c == 0
+
+        q = {s}
+        while True:
+            ans = [x for x in q if valid(x)]
+            if ans:
+                return ans
+            q = {x[:i] + x[i+1:] for x in q
+                 for i in range(len(x))
+                 if x[i] in '()'}
