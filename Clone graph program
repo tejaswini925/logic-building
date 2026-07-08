@@ -1,0 +1,17 @@
+class Solution:
+    def cloneGraph(self, node):
+        if not node:
+            return None
+
+        d = {}
+
+        def dfs(x):
+            if x in d:
+                return d[x]
+            copy = Node(x.val)
+            d[x] = copy
+            for n in x.neighbors:
+                copy.neighbors.append(dfs(n))
+            return copy
+
+        return dfs(node)
