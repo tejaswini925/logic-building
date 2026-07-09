@@ -1,0 +1,15 @@
+class Solution:
+    def sortList(self, head):
+        a = []
+        while head:
+            a.append(head.val)
+            head = head.next
+
+        a.sort()
+        d = ListNode(0)
+        c = d
+        for x in a:
+            c.next = ListNode(x)
+            c = c.next
+
+        return d.next
