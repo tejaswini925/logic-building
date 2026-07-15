@@ -1,0 +1,7 @@
+class Solution:
+    def superPow(self, a, b):
+        mod = 1337
+        n = 0
+        for i in b:
+            n = n * 10 + i
+        return pow(a, n, mod)
