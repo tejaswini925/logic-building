@@ -1,0 +1,25 @@
+class Solution:
+    def getSkyline(self, buildings):
+        events = []
+        for l, r, h in buildings:
+            events += [(l, -h), (r, h)]
+
+        events.sort()
+        import heapq
+        heap = [0]
+        ans = []
+        prev = 0
+
+        for x, h in events:
+            if h < 0:
+                heapq.heappush(heap, h)
+            else:
+                heap.remove(-h)
+                heapq.heapify(heap)
+
+            cur = -heap[0]
+            if cur != prev:
+                ans.append([x, cur])
+                prev = cur
+
+        return ans
