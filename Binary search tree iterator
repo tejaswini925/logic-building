@@ -1,0 +1,16 @@
+class BSTIterator:
+    def __init__(self, root):
+        self.a = []
+        self.f(root)
+
+    def f(self, root):
+        if root:
+            self.f(root.left)
+            self.a.append(root.val)
+            self.f(root.right)
+
+    def next(self):
+        return self.a.pop(0)
+
+    def hasNext(self):
+        return len(self.a) > 0
