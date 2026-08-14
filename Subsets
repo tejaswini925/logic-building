@@ -1,0 +1,8 @@
+class Solution:
+    def subsets(self, nums):
+        ans = [[]]
+
+        for n in nums:
+            ans += [i + [n] for i in ans]
+
+        return ans
