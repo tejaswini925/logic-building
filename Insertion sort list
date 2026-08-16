@@ -1,0 +1,18 @@
+class Solution:
+    def insertionSortList(self, head):
+        arr = []
+
+        while head:
+            arr.append(head.val)
+            head = head.next
+
+        arr.sort()
+
+        dummy = ListNode(0)
+        cur = dummy
+
+        for x in arr:
+            cur.next = ListNode(x)
+            cur = cur.next
+
+        return dummy.next
