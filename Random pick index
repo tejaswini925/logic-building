@@ -1,0 +1,9 @@
+import random
+
+class Solution:
+    def __init__(self, nums):
+        self.nums = nums
+
+    def pick(self, target):
+        a = [i for i, x in enumerate(self.nums) if x == target]
+        return random.choice(a)
