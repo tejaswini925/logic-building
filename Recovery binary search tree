@@ -1,0 +1,14 @@
+class Solution:
+    def recoverTree(self, root):
+        a = []
+
+        def inorder(node):
+            if node:
+                inorder(node.left)
+                a.append(node)
+                inorder(node.right)
+
+        inorder(root)
+        x = [i for i in range(len(a)-1) if a[i].val > a[i+1].val]
+
+        a[x[0]].val, a[x[-1]+1].val = a[x[-1]+1].val, a[x[0]].val
