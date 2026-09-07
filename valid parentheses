@@ -1,0 +1,9 @@
+class Solution:
+    def isValid(self, s):
+        stack = []
+        for c in s:
+            if c in "([{":
+                stack.append(c)
+            elif not stack or "([{".index(stack.pop()) != ")]}".index(c):
+                return False
+        return not stack
