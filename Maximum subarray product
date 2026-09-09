@@ -1,0 +1,13 @@
+class Solution:
+    def maxProduct(self, nums):
+        maximum = minimum = answer = nums[0]
+
+        for x in nums[1:]:
+            if x < 0:
+                maximum, minimum = minimum, maximum
+
+            maximum = max(x, maximum * x)
+            minimum = min(x, minimum * x)
+            answer = max(answer, maximum)
+
+        return answer
