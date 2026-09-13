@@ -1,0 +1,12 @@
+class Solution:
+    def canCross(self, stones):
+        dp = {x: set() for x in stones}
+        dp[0].add(0)
+
+        for x in stones:
+            for k in dp[x]:
+                for jump in [k - 1, k, k + 1]:
+                    if jump > 0 and x + jump in dp:
+                        dp[x + jump].add(jump)
+
+        return len(dp[stones[-1]]) > 0
