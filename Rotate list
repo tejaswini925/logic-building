@@ -1,0 +1,23 @@
+class Solution:
+    def rotateRight(self, head, k):
+        if not head:
+            return head
+
+        arr = []
+        curr = head
+
+        while curr:
+            arr.append(curr.val)
+            curr = curr.next
+
+        k %= len(arr)
+        arr = arr[-k:] + arr[:-k] if k else arr
+
+        dummy = ListNode(0)
+        curr = dummy
+
+        for x in arr:
+            curr.next = ListNode(x)
+            curr = curr.next
+
+        return dummy.next
