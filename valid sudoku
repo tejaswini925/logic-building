@@ -1,0 +1,22 @@
+class Solution:
+    def isValidSudoku(self, board):
+        rows = set()
+        cols = set()
+        boxes = set()
+
+        for i in range(9):
+            for j in range(9):
+                n = board[i][j]
+                if n == '.':
+                    continue
+
+                box = (i // 3, j // 3)
+
+                if (n, i) in rows or (n, j) in cols or (n, box) in boxes:
+                    return False
+
+                rows.add((n, i))
+                cols.add((n, j))
+                boxes.add((n, box))
+
+        return True
