@@ -1,0 +1,26 @@
+class Solution:
+    def calculate(self, s):
+        stack = []
+        num = 0
+        sign = '+'
+        s = s.replace(' ', '')
+
+        for i, ch in enumerate(s):
+            if ch.isdigit():
+                num = num * 10 + int(ch)
+
+            if ch in '+-*/' or i == len(s) - 1:
+                if sign == '+':
+                    stack.append(num)
+                elif sign == '-':
+                    stack.append(-num)
+                elif sign == '*':
+                    stack.append(stack.pop() * num)
+                elif sign == '/':
+                    a = stack.pop()
+                    stack.append(abs(a) // num * (1 if a >= 0 else -1))
+
+                sign = ch
+                num = 0
+
+        return sum(stack)
